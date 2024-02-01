@@ -2,3 +2,5 @@ push_swap
 .vscode/*
 .DS_Store
 obj/
+*.o
+*.a
