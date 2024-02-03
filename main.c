@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 13:11:08 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/03 19:10:35 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/03 20:49:49 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	ft_pop(t_stack *stack)
 		temp = stack->top;
 		stack->top = stack->top->next;
 		temp->next->prev = NULL;
+		stack->size--;
 		free(temp);
 	}
 	else if (stack->top != NULL)
@@ -52,19 +53,24 @@ void	ft_pop(t_stack *stack)
 		t_node	*temp;
 		temp = stack->top;
 		stack->top = NULL;
+		stack->size--;
 		free(temp);
 	}
 }
 
+// traverses a t_stack and prints the values
 void	ft_traverse_stack(t_stack *stack)
 {
 	t_node	*current;
+	current = NULL;
 	current = stack->top;
+
 	while(current != NULL)
 	{
 		ft_printf(":%d ", current->value);
 		current = current->next;
 	}
+	ft_putchar_fd('\n', 1);
 }
 
 void	ft_delete_nodes(t_stack *stack)
@@ -80,6 +86,7 @@ void	ft_delete_nodes(t_stack *stack)
 		current = temp;
 		temp = NULL;
 	}
+	stack->top = NULL;
 }
 
 int	main(void)
@@ -88,19 +95,23 @@ int	main(void)
 	ft_printf("%s", str);
 
 	t_stack	stack_a;
-	ft_init_stack(&stack_a);
+	t_stack	stack_b;
 
-	for (int i; i < 10; i++)
+	ft_init_stack(&stack_a);
+	ft_init_stack(&stack_b);
+
+	for (int i = 0; i < 10; i++)
 	{
 		ft_push(&stack_a, i);
 	}
 	ft_traverse_stack(&stack_a);
 
 	ft_pop(&stack_a);
-
 	ft_traverse_stack(&stack_a);
 
 	ft_delete_nodes(&stack_a);
-	ft_traverse_stack(&stack_a);
+
+	ft_printf("%d\n", stack_a.size);
+	ft_printf("%d\n", stack_b.size);
 	return (0);
 }
