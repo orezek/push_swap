@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 13:11:08 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/03 20:49:49 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/03 21:49:07 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,12 +104,23 @@ int	main(void)
 	{
 		ft_push(&stack_a, i);
 	}
+
+	for (int i = 66; i < 76; i++)
+	{
+		ft_push(&stack_b, i);
+	}
 	ft_traverse_stack(&stack_a);
 
 	ft_pop(&stack_a);
 	ft_traverse_stack(&stack_a);
 
-	ft_delete_nodes(&stack_a);
+	ft_sa(&stack_a);
+	ft_traverse_stack(&stack_a);
+	ft_traverse_stack(&stack_b);
+	//ft_delete_nodes(&stack_a);
+	ft_ss(&stack_a, &stack_b);
+	ft_traverse_stack(&stack_a);
+	ft_traverse_stack(&stack_b);
 
 	ft_printf("%d\n", stack_a.size);
 	ft_printf("%d\n", stack_b.size);
