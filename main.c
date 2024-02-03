@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 13:11:08 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/01 19:01:20 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/03 19:10:35 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,52 @@ void	ft_push(t_stack *stack, int val)
 	stack->size++;
 }
 
+// remove a node from a stack
+void	ft_pop(t_stack *stack)
+{
+	if (stack->top != NULL && stack->top->next != NULL)
+	{
+		t_node	*temp;
+		temp = stack->top;
+		stack->top = stack->top->next;
+		temp->next->prev = NULL;
+		free(temp);
+	}
+	else if (stack->top != NULL)
+	{
+		t_node	*temp;
+		temp = stack->top;
+		stack->top = NULL;
+		free(temp);
+	}
+}
+
+void	ft_traverse_stack(t_stack *stack)
+{
+	t_node	*current;
+	current = stack->top;
+	while(current != NULL)
+	{
+		ft_printf(":%d ", current->value);
+		current = current->next;
+	}
+}
+
+void	ft_delete_nodes(t_stack *stack)
+{
+	t_node	*current;
+
+	current = stack->top;
+	while(current != NULL)
+	{
+		t_node	*temp;
+		temp = current->next;
+		free(current);
+		current = temp;
+		temp = NULL;
+	}
+}
+
 int	main(void)
 {
 	char	*str = "push_swap!\n";
@@ -48,12 +94,13 @@ int	main(void)
 	{
 		ft_push(&stack_a, i);
 	}
-	t_node	*current;
-	current = stack_a.top;
-	while(current != NULL)
-	{
-		ft_printf(":%d ", current->value);
-		current = current->next;
-	}
+	ft_traverse_stack(&stack_a);
+
+	ft_pop(&stack_a);
+
+	ft_traverse_stack(&stack_a);
+
+	ft_delete_nodes(&stack_a);
+	ft_traverse_stack(&stack_a);
 	return (0);
 }
