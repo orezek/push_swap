@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 13:11:08 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/04 19:50:46 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/04 21:25:02 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,9 +102,9 @@ int	main(void)
 	ft_init_stack(&stack_a);
 	ft_init_stack(&stack_b);
 
-	for (int i = 0; i < 100; i++)
+	for (int i = 0; i < 20; i++)
 	{
-		ft_push(&stack_a, i * 25/5 *3 - 8);
+		ft_push(&stack_a, i);
 		ft_push(&stack_b, i);
 	}
 	ft_traverse_stack(&stack_a);

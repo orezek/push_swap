@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 21:01:08 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/04 18:51:38 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/04 21:26:51 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,29 @@
 
 void	ft_sa(t_stack *stack_a)
 {
-	t_node	*nop;
-	t_node	*sop;
+	t_node	*second;
+	t_node	*third;
 
-	if (stack_a->size > 1 && stack_a->size < 3)
+	if (stack_a->size == 2)
 	{
-		sop = stack_a->top->next;
+		second = stack_a->top->next; //same
 		stack_a->top->next = NULL;
-		stack_a->top->prev = sop;
-		sop->next = stack_a->top;
-		sop->prev = NULL;
+		stack_a->top->prev = second; //same
+		second->next = stack_a->top; //same
+		second->prev = NULL; //same
 		stack_a->bottom = stack_a->top;
-		stack_a->top = sop;
+		stack_a->top = second; //same
 	}
 	else if (stack_a->size > 2)
 	{
-		sop = stack_a->top->next;
-		nop = stack_a->top->next->next;
-		nop->prev = stack_a->top;
-		sop->next = stack_a->top;
-		sop->prev = NULL;
-		stack_a->top->prev = sop;
-		stack_a->top->next = nop;
-		stack_a->top = sop;
+		second = stack_a->top->next; //same
+		third = stack_a->top->next->next;
+		third->prev = stack_a->top;
+		stack_a->top->prev = second; //same
+		second->next = stack_a->top; //same
+		second->prev = NULL; //same
+		stack_a->top->next = third;
+		stack_a->top = second; //same
 	}
 }
 
