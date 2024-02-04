@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 13:11:08 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/03 21:49:07 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/04 19:50:46 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	ft_push(t_stack *stack, int val)
 
 	if (stack->top != NULL)
 		stack->top->prev = node;
+	if (stack->top == NULL)
+		stack->bottom = node;
 	stack->top = node;
 	stack->size++;
 }
@@ -100,29 +102,31 @@ int	main(void)
 	ft_init_stack(&stack_a);
 	ft_init_stack(&stack_b);
 
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 100; i++)
 	{
-		ft_push(&stack_a, i);
-	}
-
-	for (int i = 66; i < 76; i++)
-	{
+		ft_push(&stack_a, i * 25/5 *3 - 8);
 		ft_push(&stack_b, i);
 	}
 	ft_traverse_stack(&stack_a);
-
-	ft_pop(&stack_a);
-	ft_traverse_stack(&stack_a);
-
-	ft_sa(&stack_a);
-	ft_traverse_stack(&stack_a);
 	ft_traverse_stack(&stack_b);
-	//ft_delete_nodes(&stack_a);
+
 	ft_ss(&stack_a, &stack_b);
 	ft_traverse_stack(&stack_a);
 	ft_traverse_stack(&stack_b);
 
-	ft_printf("%d\n", stack_a.size);
-	ft_printf("%d\n", stack_b.size);
+	ft_printf("Stack A size:%d\n", stack_a.size);
+	ft_printf("Stack B size:%d\n", stack_b.size);
+
+	ft_printf("Stack A Top:%d\n", stack_a.top->value);
+	ft_printf("Stack A Bottom:%d\n", stack_a.bottom->value);
+	ft_printf("Stack B Top:%d\n", stack_b.top->value);
+	ft_printf("Stack B Bottom:%d\n", stack_b.bottom->value);
+	ft_ss(&stack_a, &stack_b);
+	ft_printf("Stack A Top:%d\n", stack_a.top->value);
+	ft_printf("Stack A Bottom:%d\n", stack_a.bottom->value);
+	ft_printf("Stack B Top:%d\n", stack_b.top->value);
+	ft_printf("Stack B Bottom:%d\n", stack_b.bottom->value);
+	ft_delete_nodes(&stack_a);
+	ft_delete_nodes(&stack_b);
 	return (0);
 }
