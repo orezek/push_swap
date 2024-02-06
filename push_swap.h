@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 19:27:03 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/03 21:47:29 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/06 20:46:56 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,9 @@ typedef struct s_stack {
 void	ft_sa(t_stack *stack);
 void	ft_sb(t_stack *stack_b);
 void	ft_ss(t_stack *stack_a, t_stack *stack_b);
+
+// pop/push operatations - pop from stack and push to a stack
+void	ft_pa(t_stack *from_stack_b, t_stack *to_stack_a);
+void	ft_pb(t_stack *from_stack_a, t_stack *to_stack_b);
 
 #endif
