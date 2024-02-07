@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 17:43:03 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/07 18:08:45 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/07 20:45:54 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,23 @@
 void	ft_rnormal(t_stack *stack)
 {
 	t_node	*temp_top_next;
-	t_node	*temp_bottom;
 
 	temp_top_next = stack->top->next;
-	temp_bottom = stack->bottom;
-
+	// Node links
 	// set old bottom next to old top
 	stack->bottom->next = stack->top;
 	// set old top next to NULL
 	stack->top->next = NULL;
 	// set old top prev to old bottom
 	stack->top->prev = stack->bottom;
-	// set bottom to old top
-	stack->bottom = stack->top;
 	// set new top prev to NULL
 	temp_top_next->prev = NULL;
+	// Stack links
 	// set top to new top (old second)
 	stack->top = temp_top_next;
+	// set bottom to old top
+	stack->bottom = stack->top;
+
 }
 
 /*

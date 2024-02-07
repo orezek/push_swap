@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 19:27:03 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/07 18:11:27 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/07 20:40:53 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,11 @@ void	ft_pb(t_stack *from_stack_a, t_stack *to_stack_b);
 
 // rotate operations
 void	ft_ra(t_stack *stack_a);
+void	ft_rb(t_stack *stack_b);
+void	ft_rr(t_stack *stack_a, t_stack *stack_b);
+
+// reverse rotate operations
+void	ft_rra(t_stack *stack_a);
+void	ft_rrb(t_stack *stack_b);
+void	ft_rrr(t_stack *stack_a, t_stack *stack_b);
 #endif
