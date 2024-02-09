@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 19:27:03 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/09 17:17:14 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/09 18:27:30 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ typedef struct s_stack {
 }		t_stack;
 
 // swap operations
-void	ft_swap_stack(t_stack *stack);
 void	ft_sa(t_stack *stack_a);
 void	ft_sb(t_stack *stack_b);
 void	ft_ss(t_stack *stack_a, t_stack *stack_b);
