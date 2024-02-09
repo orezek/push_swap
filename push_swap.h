@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 19:27:03 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/09 19:15:47 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/09 21:57:57 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	ft_init_stack(t_stack *stack);
 
 // control utils
 void	ft_traverse_stack(t_stack *stack);
+void	ft_print_value(t_node *node, char *text);
 
 // stack utils
 void	ft_push(t_stack *stack, int val);
