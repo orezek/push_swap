@@ -4,3 +4,5 @@ push_swap
 obj/
 *.o
 *.a
+main
+main.dSYM/
