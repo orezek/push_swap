@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 19:27:03 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/09 18:27:30 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/09 19:15:47 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,15 @@ void	ft_rr(t_stack *stack_a, t_stack *stack_b);
 void	ft_rra(t_stack *stack_a);
 void	ft_rrb(t_stack *stack_b);
 void	ft_rrr(t_stack *stack_a, t_stack *stack_b);
+
+// program utils
+void	ft_delete_nodes(t_stack *stack);
+void	ft_init_stack(t_stack *stack);
+
+// control utils
+void	ft_traverse_stack(t_stack *stack);
+
+// stack utils
+void	ft_push(t_stack *stack, int val);
+void	ft_pop(t_stack *stack);
 #endif
