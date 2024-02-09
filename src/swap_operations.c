@@ -6,47 +6,60 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 21:01:08 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/04 21:26:51 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/09 18:07:40 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../push_swap.h"
+#include "../push_swap.h"
 
-void	ft_sa(t_stack *stack_a)
+void	ft_swap_operation(t_stack *stack)
 {
 	t_node	*second;
 	t_node	*third;
 
-	if (stack_a->size == 2)
+	second = NULL;
+	third = NULL;
+	second = stack->top->next;
+	if (second->next != NULL)
 	{
-		second = stack_a->top->next; //same
-		stack_a->top->next = NULL;
-		stack_a->top->prev = second; //same
-		second->next = stack_a->top; //same
-		second->prev = NULL; //same
-		stack_a->bottom = stack_a->top;
-		stack_a->top = second; //same
+		third = second->next;
+		third->prev = stack->top;
+		stack->top->next = third;
 	}
-	else if (stack_a->size > 2)
+	stack->top->prev = second;
+	second->prev = NULL;
+	if (stack->size == 2)
 	{
-		second = stack_a->top->next; //same
-		third = stack_a->top->next->next;
-		third->prev = stack_a->top;
-		stack_a->top->prev = second; //same
-		second->next = stack_a->top; //same
-		second->prev = NULL; //same
-		stack_a->top->next = third;
-		stack_a->top = second; //same
+		stack->top->next = NULL;
+		stack->bottom = stack->top;
 	}
+	second->next = stack->top;
+	stack->top = second;
+}
+
+void	ft_swap_stack(t_stack *stack)
+{
+	if (stack->size > 1)
+	{
+		ft_swap_operation(stack);
+	}
+}
+
+void	ft_sa(t_stack *stack_a)
+{
+	ft_swap_stack(stack_a);
+	ft_putstr_fd("SA\n", 1);
 }
 
 void	ft_sb(t_stack *stack_b)
 {
-	ft_sa(stack_b);
+	ft_swap_stack(stack_b);
+	ft_putstr_fd("SB\n", 1);
 }
 
 void	ft_ss(t_stack *stack_a, t_stack *stack_b)
 {
-	ft_sa(stack_a);
-	ft_sb(stack_b);
+	ft_swap_stack(stack_a);
+	ft_swap_stack(stack_b);
+	ft_putstr_fd("SS\n", 1);
 }
