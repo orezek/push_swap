@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 17:43:03 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/07 21:02:23 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/09 18:54:56 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,29 +19,14 @@ void	ft_rnormal(t_stack *stack)
 	t_node	*temp_top_next;
 
 	temp_top_next = stack->top->next;
-
-	// set old bottom next to old top
 	stack->bottom->next = stack->top;
-	// set old top next to NULL
 	stack->top->next = NULL;
-	// set old top prev to old bottom
 	stack->top->prev = stack->bottom;
-	// set bottom to old top
 	stack->bottom = stack->top;
-	// set new top prev to NULL
 	temp_top_next->prev = NULL;
-	// set top to new top (old second)
 	stack->top = temp_top_next;
 }
 
-/*
-	Take the top element and put it into bottom
-	Edge cases:
-	stack.size == 1 || stack-size == 0
-		do nothing
-	if stack.size > 1
-		swap top for bottom
-*/
 void	ft_rotate(t_stack *stack)
 {
 	if (stack->size > 1)
