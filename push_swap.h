@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 19:27:03 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/09 21:57:57 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/11 11:47:23 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define PUSH_SWAP_H
 # include "libft/libft.h"
 # include <fcntl.h>
+# include <limits.h>
+#include <stdbool.h>
 
 typedef struct s_node {
 	int				value;
