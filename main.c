@@ -6,13 +6,13 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 13:11:08 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/11 15:41:05 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/12 22:09:46 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool ft_is_valid_nuber(char *str)
+bool	ft_is_valid_nuber(char *str)
 {
 	if (*str == '-')
 		str++;
@@ -37,28 +37,30 @@ bool	ft_arg_is_valid_number(char **args)
 	return (1);
 }
 
-void	ft_split_input_str(char *argv[], t_stack *stack)
+int32_t	ft_split_input_str(char *argv[], t_stack *stack)
 {
 	char	**args;
+
 	args = ft_split(argv[1], ' ');
 	if (args == NULL)
 	{
-		exit(1);
-		// remove exit and handle it with return
-		// print error messages to std out 2
+		ft_putstr_fd("Error: Invalid string argument.\n", 2);
+		return (1);
 	}
 	if (!ft_arg_is_valid_number(args))
-		exit(1);
-		// remove exit and handle it with return
-		// print error messages to std out 2 and cleanup
+	{
+		ft_putstr_fd("Error: Not valid number in the string\n", 2);
+		return (1);
+	}
 	while (*args)
-		{
-			ft_push(stack, ft_atoi(*(args++)));
-			ft_ra(stack);
-		}
+	{
+		ft_push(stack, ft_atoi(*(args++)));
+		ft_ra(stack);
+	}
+	return (0);
 }
 
-void	ft_convert_args(int argc, char **argv, t_stack *stack)
+int32_t	ft_convert_args(int argc, char **argv, t_stack *stack)
 {
 	int	i;
 
@@ -67,10 +69,9 @@ void	ft_convert_args(int argc, char **argv, t_stack *stack)
 	{
 		if (!ft_is_valid_nuber(argv[i]))
 		{
-			ft_putstr_fd("Error: Invalid number!\n", 2);
-			exit (1);
-			// implement the same error handling as for ft_split_input_str
-			// clean the stack because in the else you add nodes to it
+			ft_putstr_fd("Error: Argument is not valid number!\n", 2);
+			ft_delete_nodes(stack);
+			return (1);
 		}
 		else
 		{
@@ -79,6 +80,7 @@ void	ft_convert_args(int argc, char **argv, t_stack *stack)
 			i++;
 		}
 	}
+	return (0);
 }
 
 int	ft_load_input(int argc, char *argv[], t_stack *stack)
@@ -86,20 +88,14 @@ int	ft_load_input(int argc, char *argv[], t_stack *stack)
 	if (argc == 1)
 		return (1);
 	else if (argc == 2)
-		ft_split_input_str(argv, stack);
+	{
+		if (ft_split_input_str(argv, stack))
+			return (1);
+	}
 	else
-		ft_convert_args(argc, argv, stack);
-
-	// check no of arguments
-	// if two it's string with numbers
-		// split the string into separate strings
-	// if more then two, each argument is a separate number
-		// keep separate strings
-	// convert the strings into int
-	// check if the number is valid int32 - || +
-// leftmost number should be at the top of the stack
-	// push and rotate each number to have the proper order
-	// return the stack - use pointer to a stack
+		if (ft_convert_args(argc, argv, stack))
+			return (1);
+	// check if the number is valid int32 - || + adust atoi function
 	return (0);
 }
 
