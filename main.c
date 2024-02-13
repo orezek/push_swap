@@ -6,11 +6,24 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 13:11:08 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/12 22:09:46 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/13 18:35:23 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+bool	ft_is_int32(char *arg)
+{
+	long long	number;
+
+	number = ft_atol(arg);
+	if (number <= INT32_MAX && number >= INT32_MIN)
+		return (1);
+	else
+		return (0);
+	return (1);
+
+}
 
 bool	ft_is_valid_nuber(char *str)
 {
@@ -54,8 +67,16 @@ int32_t	ft_split_input_str(char *argv[], t_stack *stack)
 	}
 	while (*args)
 	{
-		ft_push(stack, ft_atoi(*(args++)));
-		ft_ra(stack);
+		if (!ft_is_int32(*args))
+		{
+			ft_putstr_fd("Error: number is out of bounds of an INT value.\n", 2);
+			return (1);
+		}
+		else
+		{
+			ft_push(stack, ft_atoi(*(args++)));
+			ft_ra(stack);
+		}
 	}
 	return (0);
 }
@@ -67,9 +88,9 @@ int32_t	ft_convert_args(int argc, char **argv, t_stack *stack)
 	i = 1;
 	while (i < argc)
 	{
-		if (!ft_is_valid_nuber(argv[i]))
+		if (!ft_is_valid_nuber(argv[i]) || !ft_is_int32(argv[i]))
 		{
-			ft_putstr_fd("Error: Argument is not valid number!\n", 2);
+			ft_putstr_fd("Error: Argument is not valid number or signed int!\n", 2);
 			ft_delete_nodes(stack);
 			return (1);
 		}
@@ -95,7 +116,6 @@ int	ft_load_input(int argc, char *argv[], t_stack *stack)
 	else
 		if (ft_convert_args(argc, argv, stack))
 			return (1);
-	// check if the number is valid int32 - || + adust atoi function
 	return (0);
 }
 
@@ -115,6 +135,8 @@ int	main(int argc, char *argv[])
 	t_stack	stack_a;
 	t_stack	stack_b;
 
+	long long mmin = -2147483648;
+	long long	mmax = 2147483647;
 	// char *test_arg = "-10 1";
 	// argc = 2;
 	// argv[1] = test_arg;
@@ -122,6 +144,12 @@ int	main(int argc, char *argv[])
 	ft_init_stack(&stack_b);
 	if (ft_load_input(argc, argv, &stack_a))
 		return (1);
+
+	int max = INT32_MAX;
+	int	min = INT32_MIN;
+
+	ft_printf("MAX:%d\n", max);
+	ft_printf("MIN:%d\n", min);
 	// load args
 	// check duplicates
 // Start sorting:
