@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 13:11:08 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/13 18:35:23 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/13 18:39:41 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int32_t	ft_split_input_str(char *argv[], t_stack *stack)
 	{
 		if (!ft_is_int32(*args))
 		{
-			ft_putstr_fd("Error: number is out of bounds of an INT value.\n", 2);
+			ft_putstr_fd("Error: number is not signed int.\n", 2);
 			return (1);
 		}
 		else
