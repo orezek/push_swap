@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 13:11:08 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/14 14:25:11 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/14 14:29:52 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ bool	ft_is_int32(char *arg)
 
 	number = ft_atol(arg);
 	if (number <= INT32_MAX && number >= INT32_MIN)
-		return (1);
+		return (true);
 	else
-		return (0);
-	return (1);
+		return (false);
+	return (true);
 
 }
 
@@ -36,8 +36,8 @@ bool	ft_is_valid_nuber(char *str)
 		str++;
 	while(*str != '\0')
 		if (!ft_isdigit(*(str++)))
-			return (0);
-	return (1);
+			return (false);
+	return (true);
 }
 
 bool	ft_arg_is_valid_number(char **args)
@@ -50,9 +50,9 @@ bool	ft_arg_is_valid_number(char **args)
 		if (ft_is_valid_nuber(str))
 			args++;
 		else
-			return (0);
+			return (false);
 	}
-	return (1);
+	return (true);
 }
 
 int32_t	ft_convert_input_str(char *argv[], t_stack *stack)
