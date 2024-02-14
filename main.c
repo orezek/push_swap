@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 13:11:08 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/14 14:23:05 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/14 14:25:11 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,16 +172,16 @@ int	main(int argc, char *argv[])
 	// argv[1] = test_arg;
 	ft_init_stack(&stack_a);
 	ft_init_stack(&stack_b);
+	// load args
 	if (ft_load_input(argc, argv, &stack_a))
 		return (1);
+	// check duplicates
 	if (!ft_check_duplicates(&stack_a))
 	{
 		ft_putstr_fd("Error: Duplicate value found\n", 2);
 		ft_delete_nodes(&stack_a);
 		return (1);
 	}
-	// load args
-	// check duplicates
 // Start sorting:
 	// check if the list is sorted
 	// check if the list has only one element
