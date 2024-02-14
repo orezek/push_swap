@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: orezek <orezek@student.42prague.com>       +#+  +:+       +#+        */
+/*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 13:11:08 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/14 13:27:16 by orezek           ###   ########.fr       */
+/*   Updated: 2024/02/14 14:23:05 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,13 @@ bool	ft_arg_is_valid_number(char **args)
 	return (1);
 }
 
-int32_t	ft_split_input_str(char *argv[], t_stack *stack)
+int32_t	ft_convert_input_str(char *argv[], t_stack *stack)
 {
 	char	**args;
-	char	**copy_args;
+	char	**args_ptr;
 
 	args = ft_split(argv[1], ' ');
-	copy_args = args;
+	args_ptr = args;
 	if (args == NULL)
 	{
 		ft_putstr_fd("Error: Invalid string argument.\n", 2);
@@ -73,21 +73,22 @@ int32_t	ft_split_input_str(char *argv[], t_stack *stack)
 		ft_delete_array(args);
 		return (1);
 	}
-	while (*copy_args)
-	{
-		if (!ft_is_int32(*copy_args))
-		{
-			ft_putstr_fd("Error: number is not signed int.\n", 2);
-			ft_delete_array(args);
-			return (1);
-		}
-		copy_args++;
-	}
 	while (*args)
 	{
-		ft_push(stack, ft_atoi(*(args++)));
-		ft_ra_push(stack);
+		if (!ft_is_int32(*args))
+		{
+			ft_putstr_fd("Error: Number is not signed int.\n", 2);
+			ft_delete_array(args_ptr);
+			ft_delete_nodes(stack);
+			return (1);
+		}
+		else
+		{
+			ft_push(stack, ft_atoi(*(args++)));
+			ft_ra_push(stack);
+		}
 	}
+	ft_delete_array(args_ptr);
 	return (0);
 }
 
@@ -120,7 +121,7 @@ int	ft_load_input(int argc, char *argv[], t_stack *stack)
 		return (1);
 	else if (argc == 2)
 	{
-		if (ft_split_input_str(argv, stack))
+		if (ft_convert_input_str(argv, stack))
 			return (1);
 	}
 	else
@@ -129,9 +130,28 @@ int	ft_load_input(int argc, char *argv[], t_stack *stack)
 	return (0);
 }
 
-void	ft_check_duplicates(t_stack *stack)
+bool	ft_check_duplicates(t_stack *stack)
 {
-	;
+	t_node	*node;
+	t_node	*next_node;
+	int		val;
+
+	if (stack == NULL)
+		return false;
+	node = stack->top;
+	while (node != NULL)
+	{
+		val = node->value;
+		next_node = node->next;
+		while (next_node != NULL)
+		{
+			if (next_node->value == val)
+				return (false);
+			next_node = next_node->next;
+		}
+		node = node->next;
+	}
+	return (true);
 }
 
 int		ft_is_stack_sorted(t_stack *stack)
@@ -154,12 +174,12 @@ int	main(int argc, char *argv[])
 	ft_init_stack(&stack_b);
 	if (ft_load_input(argc, argv, &stack_a))
 		return (1);
-
-	int max = INT32_MAX;
-	int	min = INT32_MIN;
-
-	ft_printf("MAX:%d\n", max);
-	ft_printf("MIN:%d\n", min);
+	if (!ft_check_duplicates(&stack_a))
+	{
+		ft_putstr_fd("Error: Duplicate value found\n", 2);
+		ft_delete_nodes(&stack_a);
+		return (1);
+	}
 	// load args
 	// check duplicates
 // Start sorting:
