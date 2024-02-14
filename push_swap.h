@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 19:27:03 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/13 17:42:41 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/14 13:24:14 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 # include "libft/libft.h"
 # include <fcntl.h>
 # include <limits.h>
-#include <stdbool.h>
+# include <stdbool.h>
+# include <stdint.h>
 
 typedef struct s_node {
 	int				value;
@@ -42,6 +43,7 @@ void	ft_pb(t_stack *from_stack_a, t_stack *to_stack_b);
 void	ft_ra(t_stack *stack_a);
 void	ft_rb(t_stack *stack_b);
 void	ft_rr(t_stack *stack_a, t_stack *stack_b);
+void	ft_rotate(t_stack *stack);
 
 // reverse rotate operations
 void	ft_rra(t_stack *stack_a);
@@ -62,4 +64,7 @@ void	ft_pop(t_stack *stack);
 
 // atol
 long	ft_atol(const char *string);
+
+// array utils
+void	ft_delete_array(char **array);
 #endif

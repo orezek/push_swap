@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 19:07:27 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/09 19:17:46 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/14 13:09:10 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,19 @@ void	ft_delete_nodes(t_stack *stack)
 		temp = NULL;
 	}
 	stack->top = NULL;
+}
+
+void	ft_delete_array(char **array)
+{
+	char	**ar;
+
+	ar = array;
+	while (*array)
+	{
+		free(*array);
+		array++;
+	}
+	free(ar);
 }
 
 void	ft_init_stack(t_stack *stack)

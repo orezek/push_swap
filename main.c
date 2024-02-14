@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
+/*   By: orezek <orezek@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 13:11:08 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/13 18:39:41 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/14 13:27:16 by orezek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_ra_push(t_stack *stack_a)
+{
+	ft_rotate(stack_a);
+}
 
 bool	ft_is_int32(char *arg)
 {
@@ -53,30 +58,35 @@ bool	ft_arg_is_valid_number(char **args)
 int32_t	ft_split_input_str(char *argv[], t_stack *stack)
 {
 	char	**args;
+	char	**copy_args;
 
 	args = ft_split(argv[1], ' ');
+	copy_args = args;
 	if (args == NULL)
 	{
 		ft_putstr_fd("Error: Invalid string argument.\n", 2);
 		return (1);
 	}
-	if (!ft_arg_is_valid_number(args))
+	else if (!ft_arg_is_valid_number(args))
 	{
 		ft_putstr_fd("Error: Not valid number in the string\n", 2);
+		ft_delete_array(args);
 		return (1);
+	}
+	while (*copy_args)
+	{
+		if (!ft_is_int32(*copy_args))
+		{
+			ft_putstr_fd("Error: number is not signed int.\n", 2);
+			ft_delete_array(args);
+			return (1);
+		}
+		copy_args++;
 	}
 	while (*args)
 	{
-		if (!ft_is_int32(*args))
-		{
-			ft_putstr_fd("Error: number is not signed int.\n", 2);
-			return (1);
-		}
-		else
-		{
-			ft_push(stack, ft_atoi(*(args++)));
-			ft_ra(stack);
-		}
+		ft_push(stack, ft_atoi(*(args++)));
+		ft_ra_push(stack);
 	}
 	return (0);
 }
@@ -97,7 +107,7 @@ int32_t	ft_convert_args(int argc, char **argv, t_stack *stack)
 		else
 		{
 			ft_push(stack, ft_atoi(argv[i]));
-			ft_ra(stack);
+			ft_ra_push(stack);
 			i++;
 		}
 	}
