@@ -6,12 +6,33 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 17:37:11 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/13 17:42:18 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/15 12:20:31 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../push_swap.h"
+
+bool	ft_is_int32(char *arg)
+{
+	long long	number;
+
+	number = ft_atol(arg);
+	if (number <= INT32_MAX && number >= INT32_MIN)
+		return (true);
+	else
+		return (false);
+	return (true);
+}
+
+bool	ft_is_valid_nuber(char *str)
+{
+	if (*str == '-')
+		str++;
+	while (*str != '\0')
+		if (!ft_isdigit(*(str++)))
+			return (false);
+	return (true);
+}
 
 static int	ft_isspace(int c)
 {

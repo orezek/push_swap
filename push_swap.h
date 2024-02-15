@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 19:27:03 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/14 13:24:14 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/15 12:18:38 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,14 @@ long	ft_atol(const char *string);
 
 // array utils
 void	ft_delete_array(char **array);
+
+// input utils
+bool	ft_is_int32(char *arg);
+bool	ft_is_valid_nuber(char *str);
+void	ft_ra_push(t_stack *stack_a);
+bool	ft_arg_is_valid_number(char **args);
+bool	ft_check_duplicates(t_stack *stack);
+int32_t	ft_convert_input_str(char *argv[], t_stack *stack);
+int32_t	ft_convert_args(int argc, char **argv, t_stack *stack);
+int		ft_load_input(int argc, char *argv[], t_stack *stack);
 #endif

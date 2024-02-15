@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 19:12:08 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/09 19:15:08 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/15 12:13:33 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,9 @@ void	ft_pop(t_stack *stack)
 		stack->size--;
 		free(temp);
 	}
+}
+
+void	ft_ra_push(t_stack *stack_a)
+{
+	ft_rotate(stack_a);
 }
