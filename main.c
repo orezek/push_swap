@@ -6,22 +6,24 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 13:11:08 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/15 12:15:11 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/15 13:21:33 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_is_stack_sorted(t_stack *stack)
-{
-	;
-	return (0);
-}
+// int		ft_is_stack_sorted(t_stack *stack)
+// {
+// 	;
+// 	return (0);
+// }
 
 int	main(int argc, char *argv[])
 {
 	t_stack	stack_a;
 	t_stack	stack_b;
+	int	sorted;
+	sorted = 99;
 
 	long long mmin = -2147483648;
 	long long	mmax = 2147483647;
@@ -42,6 +44,13 @@ int	main(int argc, char *argv[])
 	}
 // Start sorting:
 	// check if the list is sorted
+	if (ft_is_stack_sorted_asc(&stack_a))
+	{
+		ft_putstr_fd("Error: Arg values are sorted.\n", 2);
+		ft_delete_nodes(&stack_a);
+		return (0);
+	}
+
 	// check if the list has only one element
 	// check if the list has two elements: if not sorted, sort
 	// check if the list contains three elements: if not sorted, sort
