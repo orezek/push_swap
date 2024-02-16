@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 17:43:03 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/09 18:54:56 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/16 12:53:25 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_ra(t_stack *stack_a)
 void	ft_rb(t_stack *stack_b)
 {
 	ft_rotate(stack_b);
-	ft_putstr_fd("RA\n", 1);
+	ft_putstr_fd("RB\n", 1);
 }
 
 void	ft_rr(t_stack *stack_a, t_stack *stack_b)
