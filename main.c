@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 13:11:08 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/16 12:57:51 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/16 18:30:11 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	main(int argc, char *argv[])
 	// check if the list is sorted
 	if (ft_is_stack_sorted_asc(&stack_a))
 	{
-		//ft_putstr_fd("Error: Arg values are sorted.\n", 2);
+		ft_putstr_fd("Error: Arg values are sorted.\n", 2);
 		ft_delete_nodes(&stack_a);
 		return (0);
 	}
