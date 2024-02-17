@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 12:10:11 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/15 12:19:49 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/17 18:33:26 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int32_t	ft_convert_args(int argc, char **argv, t_stack *stack)
 	{
 		if (!ft_is_valid_nuber(argv[i]) || !ft_is_int32(argv[i]))
 		{
-			ft_putstr_fd("Error: Argument is not valid number or signed int!\n", 2);
+			ft_putstr_fd("Error: Arg is not valid number or signed int!\n", 2);
 			ft_delete_nodes(stack);
 			return (1);
 		}
@@ -58,24 +58,16 @@ int32_t	ft_convert_input_str(char *argv[], t_stack *stack)
 	args = ft_split(argv[1], ' ');
 	args_ptr = args;
 	if (args == NULL)
-	{
-		ft_putstr_fd("Error: Invalid string argument.\n", 2);
-		return (1);
-	}
+		return (ft_putstr_fd("Error: Invalid string argument.\n", 2), 1);
 	else if (!ft_arg_is_valid_number(args))
-	{
-		ft_putstr_fd("Error: Not valid number in the string\n", 2);
-		ft_delete_array(args);
-		return (1);
-	}
+		return (ft_putstr_fd("Error: Invalid number in the string.\n", 2),
+			ft_delete_array(args), 1);
 	while (*args)
 	{
 		if (!ft_is_int32(*args))
 		{
 			ft_putstr_fd("Error: Number is not signed int.\n", 2);
-			ft_delete_array(args_ptr);
-			ft_delete_nodes(stack);
-			return (1);
+			return (ft_delete_array(args_ptr), ft_delete_nodes(stack), 1);
 		}
 		else
 		{
@@ -83,8 +75,7 @@ int32_t	ft_convert_input_str(char *argv[], t_stack *stack)
 			ft_ra_push(stack);
 		}
 	}
-	ft_delete_array(args_ptr);
-	return (0);
+	return (ft_delete_array(args_ptr), 0);
 }
 
 bool	ft_arg_is_valid_number(char **args)

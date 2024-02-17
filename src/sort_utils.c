@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 12:28:45 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/15 13:13:27 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/17 18:17:50 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 bool	ft_is_stack_sorted_asc(t_stack *stack)
 {
 	t_node	*node;
-	t_node 	*next_node;
+	t_node	*next_node;
 	int32_t	value;
 
 	node = stack->top;

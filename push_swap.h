@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 19:27:03 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/16 12:45:56 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/17 18:16:45 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	ft_print_value(t_node *node, char *text);
 // stack utils
 void	ft_push(t_stack *stack, int val);
 void	ft_pop(t_stack *stack);
+t_node	*ft_get_highest_val(t_stack *stack);
 
 // atol
 long	ft_atol(const char *string);
