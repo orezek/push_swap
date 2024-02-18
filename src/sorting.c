@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 12:29:59 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/17 18:16:45 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/18 15:38:06 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,4 @@ int32_t	ft_sort_to_three(t_stack *stack)
 	}
 	else
 		return (0);
-}
-
-void	ft_turk_sort(t_stack *stack_a, t_stack *stack_b)
-{
-	;
 }

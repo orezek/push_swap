@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 13:11:08 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/17 18:19:16 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/18 18:51:40 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	main(int argc, char *argv[])
 		return (ft_delete_nodes(&stack_a), 0);
 	if (!ft_sort_to_three(&stack_a))
 	{
+		// ft_traverse_stack(&stack_a);
+		// ft_traverse_stack(&stack_b);
 		ft_turk_sort(&stack_a, &stack_b);
 		ft_delete_nodes(&stack_a);
 		return (0);
