@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 19:27:03 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/18 15:36:10 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/19 13:35:35 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@
 
 typedef struct s_node {
 	int				value;
+	int				position;
+	int				r_distance;
+	int				rr_distance;
+	struct s_node	*target_node;
 	struct s_node	*next;
 	struct s_node	*prev;
 }		t_node;
@@ -83,4 +87,8 @@ bool	ft_is_stack_sorted_asc(t_stack *stack);
 // sorting
 int32_t	ft_sort_to_three(t_stack *stack);
 void	ft_turk_sort(t_stack *stack_a, t_stack *stack_b);
+void	ft_index_stack(t_stack *stack);
+void	ft_calculcate_distance(t_stack *stack);
+void	ft_find_closest_smaller_number_in_b(t_stack *stack_a, t_stack *stack_b);
+t_node	*ft_select_nodes_to_push(t_stack *stack);
 #endif
