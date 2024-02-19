@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 19:12:08 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/17 18:16:45 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/19 20:39:37 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,20 @@ t_node	*ft_get_highest_val(t_stack *stack)
 		top = top->next;
 	}
 	return (highest_value);
+}
+
+t_node	*ft_get_smallest_val(t_stack *stack)
+{
+	t_node	*top;
+	t_node	*smallest_value;
+
+	top = stack->top;
+	smallest_value = top;
+	while (top != NULL)
+	{
+		if (top->value < smallest_value->value)
+			smallest_value = top;
+		top = top->next;
+	}
+	return (smallest_value);
 }
