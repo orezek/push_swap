@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 19:27:03 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/19 21:39:06 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/19 21:59:30 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,4 +102,5 @@ void	ft_move_selected_nodes_to_top(t_stack *stack_a, t_stack *stack_b, t_node *s
 void	ft_find_closest_bigger_number_in_a(t_stack *stack_b, t_stack *stack_a);
 void	ft_move_nodes_from_a_to_b(t_stack *stack_a, t_stack *stack_b);
 void	ft_move_nodes_from_b_to_a(t_stack *stack_b, t_stack *stack_a);
+void	ft_move_selected_nodes_to_top_vb(t_stack *stack_a, t_stack *stack_b, t_node *selected_node);
 #endif
