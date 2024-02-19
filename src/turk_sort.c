@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 15:36:50 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/19 22:29:40 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/19 22:36:57 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -348,12 +348,12 @@ void	ft_move_nodes_from_b_to_a(t_stack *stack_b, t_stack *stack_a)
 void	ft_turk_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node	*smallest_node;
-	ft_traverse_stack(stack_a);
+	//ft_traverse_stack(stack_a);
 	// first phase
 	ft_move_nodes_from_a_to_b(stack_a, stack_b);
 	ft_sort_three(stack_a);
-	ft_traverse_stack(stack_a);
-	ft_traverse_stack(stack_b);
+	// ft_traverse_stack(stack_a);
+	// ft_traverse_stack(stack_b);
 	// second phase
 	ft_move_nodes_from_b_to_a(stack_b, stack_a);
 	// third phase
@@ -367,6 +367,6 @@ void	ft_turk_sort(t_stack *stack_a, t_stack *stack_b)
 		else
 			ft_rra(stack_a);
 	}
-	ft_traverse_stack(stack_a);
+	//ft_traverse_stack(stack_a);
 	// move biggest to the bottom if applicable
 }
