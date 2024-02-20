@@ -6,3 +6,6 @@ obj/
 *.a
 main
 main.dSYM/
+checker_Mac
+checker_linux
+run_push_swap.sh

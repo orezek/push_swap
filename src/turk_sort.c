@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 15:36:50 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/19 22:36:57 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/20 13:28:28 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -268,7 +268,7 @@ void	ft_move_selected_nodes_to_top_vb(t_stack *stack_a, t_stack *stack_b, t_node
 	t_node	*node_b;
 
 	node_b = selected_node;
-	node_a = node_a->target_node;
+	node_a = node_b->target_node;
 
 	if (node_a->r_distance <= node_a->rr_distance && node_b->r_distance <= node_b->rr_distance)
 	{
