@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 19:27:03 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/19 21:59:30 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/20 13:34:32 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,8 @@ void	ft_calculcate_distance(t_stack *stack);
 void	ft_find_closest_smaller_number_in_b(t_stack *stack_a, t_stack *stack_b);
 t_node	*ft_select_nodes_to_push(t_stack *stack);
 int32_t	ft_nodes_cost(t_node *node);
-void	ft_reverse_to_top(t_stack *stack, t_node *node);
-void	ft_rotate_to_top(t_stack *stack, t_node *node);
+void	ft_reverse_to_top(t_stack *stack, t_node *node, char *str);
+void	ft_rotate_to_top(t_stack *stack, t_node *node, char *str);
 void	ft_move_selected_nodes_to_top(t_stack *stack_a, t_stack *stack_b, t_node *selected_node);
 void	ft_find_closest_bigger_number_in_a(t_stack *stack_b, t_stack *stack_a);
 void	ft_move_nodes_from_a_to_b(t_stack *stack_a, t_stack *stack_b);
