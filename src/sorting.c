@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 12:29:59 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/20 12:20:15 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/20 21:53:36 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,12 @@ int32_t	ft_sort_to_three(t_stack *stack)
 		return (1);
 	else if (stack->size == 2 && !ft_is_stack_sorted_asc(stack))
 	{
-		//ft_printf("Highest value:%d\n", ft_get_highest_val(stack)->value);
 		ft_ra(stack);
-		//ft_traverse_stack(stack);
 		return (1);
 	}
 	else if (stack->size == 3 && !ft_is_stack_sorted_asc(stack))
 	{
-		//ft_printf("Highest value:%d\n", ft_get_highest_val(stack)->value);
 		ft_sort_three(stack);
-		//ft_traverse_stack(stack);
 		return (1);
 	}
 	else
