@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 21:01:08 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/09 18:07:40 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/20 17:42:35 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,18 @@ void	ft_swap_stack(t_stack *stack)
 void	ft_sa(t_stack *stack_a)
 {
 	ft_swap_stack(stack_a);
-	ft_putstr_fd("SA\n", 1);
+	ft_putstr_fd("sa\n", 1);
 }
 
 void	ft_sb(t_stack *stack_b)
 {
 	ft_swap_stack(stack_b);
-	ft_putstr_fd("SB\n", 1);
+	ft_putstr_fd("sb\n", 1);
 }
 
 void	ft_ss(t_stack *stack_a, t_stack *stack_b)
 {
 	ft_swap_stack(stack_a);
 	ft_swap_stack(stack_b);
-	ft_putstr_fd("SS\n", 1);
+	ft_putstr_fd("ss\n", 1);
 }

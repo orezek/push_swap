@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 18:29:51 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/09 18:58:03 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/20 17:42:17 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,11 @@ void	ft_pop_push(t_stack *src_stack, t_stack *dst_stack)
 void	ft_pb(t_stack *from_stack_a, t_stack *to_stack_b)
 {
 	ft_pop_push(from_stack_a, to_stack_b);
-	ft_putstr_fd("PB\n", 1);
+	ft_putstr_fd("pb\n", 1);
 }
 
 void	ft_pa(t_stack *from_stack_b, t_stack *to_stack_a)
 {
 	ft_pop_push(from_stack_b, to_stack_a);
-	ft_putstr_fd("PA\n", 1);
+	ft_putstr_fd("pa\n", 1);
 }

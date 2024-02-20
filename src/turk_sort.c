@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 15:36:50 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/20 13:40:29 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/20 17:45:03 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,11 +142,11 @@ void	ft_move_selected_nodes_to_top(t_stack *stack_a, t_stack *stack_b, t_node *s
 			ft_rr(stack_a, stack_b);
 		if (stack_a->top != node_a)
 		{
-			ft_rotate_to_top(stack_a, node_a, "RA\n");
+			ft_rotate_to_top(stack_a, node_a, "ra\n");
 		}
 		else if (stack_b->top != node_b)
 		{
-			ft_rotate_to_top(stack_b, node_b, "RB\n");
+			ft_rotate_to_top(stack_b, node_b, "rb\n");
 		}
 
 	}
@@ -157,11 +157,11 @@ void	ft_move_selected_nodes_to_top(t_stack *stack_a, t_stack *stack_b, t_node *s
 			ft_rrr(stack_a, stack_b);
 		if (stack_a->top != node_a)
 		{
-			ft_reverse_to_top(stack_a, node_a, "RRA\n");
+			ft_reverse_to_top(stack_a, node_a, "rra\n");
 		}
 		else if (stack_b->top != node_b)
 		{
-			ft_reverse_to_top(stack_b, node_b, "RRB\n");
+			ft_reverse_to_top(stack_b, node_b, "rrb\n");
 		}
 	}
 	else
@@ -169,22 +169,22 @@ void	ft_move_selected_nodes_to_top(t_stack *stack_a, t_stack *stack_b, t_node *s
 		if (node_a->r_distance <= node_a->rr_distance)
 		{
 			// move node_a to the top in ra
-			ft_rotate_to_top(stack_a, node_a, "RA\n");
+			ft_rotate_to_top(stack_a, node_a, "ra\n");
 		}
 		else if (node_a->r_distance > node_a->rr_distance)
 		{
 			// move node_a to the top in rra
-			ft_reverse_to_top(stack_a, node_a, "RRA\n");
+			ft_reverse_to_top(stack_a, node_a, "rra\n");
 		}
 		if (node_b->r_distance <= node_b->rr_distance)
 		{
 			// move node_b to the top in rb
-			ft_rotate_to_top(stack_b, node_b, "RB\n");
+			ft_rotate_to_top(stack_b, node_b, "rb\n");
 		}
 		else if (node_b->r_distance > node_b->rr_distance)
 		{
 			// move node_b to top in rrb
-			ft_reverse_to_top(stack_b, node_b, "RRB\n");
+			ft_reverse_to_top(stack_b, node_b, "rrb\n");
 		}
 	}
 }
@@ -275,11 +275,11 @@ void	ft_move_selected_nodes_to_top_vb(t_stack *stack_a, t_stack *stack_b, t_node
 			ft_rr(stack_a, stack_b);
 		if (stack_a->top != node_a)
 		{
-			ft_rotate_to_top(stack_a, node_a, "RA\n");
+			ft_rotate_to_top(stack_a, node_a, "ra\n");
 		}
 		else if (stack_b->top != node_b)
 		{
-			ft_rotate_to_top(stack_b, node_b, "RB\n");
+			ft_rotate_to_top(stack_b, node_b, "rb\n");
 		}
 
 	}
@@ -290,11 +290,11 @@ void	ft_move_selected_nodes_to_top_vb(t_stack *stack_a, t_stack *stack_b, t_node
 			ft_rrr(stack_a, stack_b);
 		if (stack_a->top != node_a)
 		{
-			ft_reverse_to_top(stack_a, node_a, "RRA\n");
+			ft_reverse_to_top(stack_a, node_a, "rra\n");
 		}
 		else if (stack_b->top != node_b)
 		{
-			ft_reverse_to_top(stack_b, node_b, "RRB\n");
+			ft_reverse_to_top(stack_b, node_b, "rrb\n");
 		}
 	}
 	else
@@ -302,22 +302,22 @@ void	ft_move_selected_nodes_to_top_vb(t_stack *stack_a, t_stack *stack_b, t_node
 		if (node_a->r_distance <= node_a->rr_distance)
 		{
 			// move node_a to the top in ra
-			ft_rotate_to_top(stack_a, node_a, "RA\n");
+			ft_rotate_to_top(stack_a, node_a, "ra\n");
 		}
 		else if (node_a->r_distance > node_a->rr_distance)
 		{
 			// move node_a to the top in rra
-			ft_reverse_to_top(stack_a, node_a, "RRA\n");
+			ft_reverse_to_top(stack_a, node_a, "rra\n");
 		}
 		if (node_b->r_distance <= node_b->rr_distance)
 		{
 			// move node_b to the top in rb
-			ft_rotate_to_top(stack_b, node_b, "RB\n");
+			ft_rotate_to_top(stack_b, node_b, "rb\n");
 		}
 		else if (node_b->r_distance > node_b->rr_distance)
 		{
 			// move node_b to top in rrb
-			ft_reverse_to_top(stack_b, node_b, "RRB\n");
+			ft_reverse_to_top(stack_b, node_b, "rrb\n");
 		}
 	}
 }
