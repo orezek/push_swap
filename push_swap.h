@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 19:27:03 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/21 19:31:58 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/21 19:51:53 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,4 +105,6 @@ void	ft_move_nodes_from_a_to_b(t_stack *stack_a, t_stack *stack_b);
 void	ft_move_nodes_from_b_to_a(t_stack *stack_b, t_stack *stack_a);
 void	ft_mov_nod_top_b(t_stack *stack_a,
 			t_stack *stack_b, t_node *selected_node);
+void	ft_move_ops(t_node *node_a, t_node *node_b,
+			t_stack *stack_a, t_stack *stack_b);
 #endif
