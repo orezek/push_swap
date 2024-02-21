@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 15:36:50 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/21 19:24:37 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/21 19:31:58 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	ft_move_nodes_from_a_to_b(t_stack *stack_a, t_stack *stack_b)
 		ft_calculcate_distance(stack_b);
 		ft_find_closest_smaller_number_in_b(stack_a, stack_b);
 		cheapest = ft_select_nodes_to_push(stack_a);
-		ft_move_selected_nodes_to_top(stack_a, stack_b, cheapest);
+		ft_mov_nod_top_a(stack_a, stack_b, cheapest);
 		ft_pb(stack_a, stack_b);
 	}
 }
@@ -101,7 +101,7 @@ void	ft_move_nodes_from_b_to_a(t_stack *stack_b, t_stack *stack_a)
 		ft_calculcate_distance(stack_b);
 		ft_find_closest_bigger_number_in_a(stack_b, stack_a);
 		cheapest = ft_select_nodes_to_push(stack_b);
-		ft_move_selected_nodes_to_top_vb(stack_a, stack_b, cheapest);
+		ft_mov_nod_top_b(stack_a, stack_b, cheapest);
 		ft_pa(stack_b, stack_a);
 	}
 }
