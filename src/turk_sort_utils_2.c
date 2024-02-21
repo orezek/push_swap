@@ -6,7 +6,7 @@
 /*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 21:47:54 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/21 19:47:47 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/21 20:02:04 by aldokezer        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ int32_t	ft_nodes_cost(t_node *node)
 	return (node_pair_cost);
 }
 
-void	ft_move_ops(t_node *node_a, t_node *node_b, t_stack *stack_a, t_stack *stack_b)
+void	ft_move_ops_end(t_node *node_a, t_node *node_b,
+		t_stack *stack_a, t_stack *stack_b)
 {
 	if (node_a->r_distance <= node_a->rr_distance)
 		ft_rotate_to_top(stack_a, node_a, "ra\n");
@@ -45,6 +46,15 @@ void	ft_move_ops(t_node *node_a, t_node *node_b, t_stack *stack_a, t_stack *stac
 		ft_reverse_to_top(stack_b, node_b, "rrb\n");
 }
 
+void	ft_move_ops_middle(t_node *node_a, t_node *node_b,
+		t_stack *stack_a, t_stack *stack_b)
+{
+	if (stack_a->top != node_a)
+		ft_reverse_to_top(stack_a, node_a, "rra\n");
+	else if (stack_b->top != node_b)
+		ft_reverse_to_top(stack_b, node_b, "rrb\n");
+}
+
 void	ft_mov_nod_top_a(t_stack *stack_a, t_stack *stack_b, t_node *selec_node)
 {
 	t_node	*node_a;
@@ -52,7 +62,8 @@ void	ft_mov_nod_top_a(t_stack *stack_a, t_stack *stack_b, t_node *selec_node)
 
 	node_a = selec_node;
 	node_b = node_a->target_node;
-	if (node_a->r_distance <= node_a->rr_distance && node_b->r_distance <= node_b->rr_distance)
+	if (node_a->r_distance <= node_a->rr_distance
+		&& node_b->r_distance <= node_b->rr_distance)
 	{
 		while (stack_a->top != node_a && stack_b->top != node_b)
 			ft_rr(stack_a, stack_b);
@@ -61,17 +72,15 @@ void	ft_mov_nod_top_a(t_stack *stack_a, t_stack *stack_b, t_node *selec_node)
 		else if (stack_b->top != node_b)
 			ft_rotate_to_top(stack_b, node_b, "rb\n");
 	}
-	else if (node_a->r_distance > node_a->rr_distance && node_b->r_distance > node_b->rr_distance)
+	else if (node_a->r_distance > node_a->rr_distance
+		&& node_b->r_distance > node_b->rr_distance)
 	{
 		while (stack_a->top != node_a && stack_b->top != node_b)
 			ft_rrr(stack_a, stack_b);
-		if (stack_a->top != node_a)
-			ft_reverse_to_top(stack_a, node_a, "rra\n");
-		else if (stack_b->top != node_b)
-			ft_reverse_to_top(stack_b, node_b, "rrb\n");
+		ft_move_ops_middle(node_a, node_b, stack_a, stack_b);
 	}
 	else
-		ft_move_ops(node_a, node_b, stack_a, stack_b);
+		ft_move_ops_end(node_a, node_b, stack_a, stack_b);
 }
 
 void	ft_mov_nod_top_b(t_stack *stack_a, t_stack *stack_b, t_node *selec_node)
@@ -81,7 +90,8 @@ void	ft_mov_nod_top_b(t_stack *stack_a, t_stack *stack_b, t_node *selec_node)
 
 	node_b = selec_node;
 	node_a = node_b->target_node;
-	if (node_a->r_distance <= node_a->rr_distance && node_b->r_distance <= node_b->rr_distance)
+	if (node_a->r_distance <= node_a->rr_distance
+		&& node_b->r_distance <= node_b->rr_distance)
 	{
 		while (stack_a->top != node_a && stack_b->top != node_b)
 			ft_rr(stack_a, stack_b);
@@ -90,15 +100,13 @@ void	ft_mov_nod_top_b(t_stack *stack_a, t_stack *stack_b, t_node *selec_node)
 		else if (stack_b->top != node_b)
 			ft_rotate_to_top(stack_b, node_b, "rb\n");
 	}
-	else if (node_a->r_distance > node_a->rr_distance && node_b->r_distance > node_b->rr_distance)
+	else if (node_a->r_distance > node_a->rr_distance
+		&& node_b->r_distance > node_b->rr_distance)
 	{
 		while (stack_a->top != node_a && stack_b->top != node_b)
 			ft_rrr(stack_a, stack_b);
-		if (stack_a->top != node_a)
-			ft_reverse_to_top(stack_a, node_a, "rra\n");
-		else if (stack_b->top != node_b)
-			ft_reverse_to_top(stack_b, node_b, "rrb\n");
+		ft_move_ops_middle(node_a, node_b, stack_a, stack_b);
 	}
 	else
-		ft_move_ops(node_a, node_b, stack_a, stack_b);
+		ft_move_ops_end(node_a, node_b, stack_a, stack_b);
 }
