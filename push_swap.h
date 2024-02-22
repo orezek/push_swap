@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldokezer <aldokezer@student.42.fr>        +#+  +:+       +#+        */
+/*   By: orezek <orezek@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 19:27:03 by aldokezer         #+#    #+#             */
-/*   Updated: 2024/02/21 20:02:24 by aldokezer        ###   ########.fr       */
+/*   Updated: 2024/02/22 11:58:52 by orezek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 # include <stdbool.h>
 # include <stdint.h>
 
-typedef struct s_node {
+typedef struct s_node
+{
 	int				value;
 	int				position;
 	int				r_distance;
@@ -28,7 +29,8 @@ typedef struct s_node {
 	struct s_node	*prev;
 }		t_node;
 
-typedef struct s_stack {
+typedef struct s_stack
+{
 	t_node	*top;
 	t_node	*bottom;
 	int		size;
